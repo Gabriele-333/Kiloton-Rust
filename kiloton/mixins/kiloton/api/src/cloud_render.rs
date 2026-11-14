@@ -39,7 +39,7 @@ static STATE: Mutex<Option<State>> = Mutex::new(None);
 
 /// The composite pass, for a target that takes linear colour or not.
 fn composite_source(linear: bool) -> String {
-    let s = include_str!("kiloton_cloud_composite.wgsl");
+    let s = include_str!(concat!(env!("CARGO_MANIFEST_DIR"), "/data/kiloton_cloud_composite.wgsl"));
     if linear {
         s.replacen("const LINEAR: bool = false;", "const LINEAR: bool = true;", 1)
     } else {
@@ -92,7 +92,7 @@ impl State {
     fn new(device: &wgpu::Device, format: wgpu::TextureFormat) -> Self {
         let linear_target = format.is_srgb() || matches!(format, wgpu::TextureFormat::Rgba16Float | wgpu::TextureFormat::Rgba32Float);
         log::info!("Kiloton: cloud volume drawn over a {format:?} frame (linear: {linear_target})");
-        let volume = pipeline(device, include_str!("kiloton_cloud.wgsl"), "Kiloton cloud volume", "fs_volume", wgpu::TextureFormat::Rgba16Float);
+        let volume = pipeline(device, include_str!(concat!(env!("CARGO_MANIFEST_DIR"), "/data/kiloton_cloud.wgsl")), "Kiloton cloud volume", "fs_volume", wgpu::TextureFormat::Rgba16Float);
         let composite = pipeline(device, &composite_source(linear_target), "Kiloton cloud composite", "fs", format);
         let linear = device.create_sampler(&wgpu::SamplerDescriptor {
             label: Some("Kiloton cloud"),
@@ -113,14 +113,14 @@ impl State {
                 })
             })
             .collect();
-        let flash = pipeline(device, include_str!("kiloton_flash.wgsl"), "Kiloton flash", "fs", format);
+        let flash = pipeline(device, include_str!(concat!(env!("CARGO_MANIFEST_DIR"), "/data/kiloton_flash.wgsl")), "Kiloton flash", "fs", format);
         let flash_ubo = device.create_buffer(&wgpu::BufferDescriptor {
             label: Some("Kiloton flash uniforms"),
             size: 160,
             usage: wgpu::BufferUsages::UNIFORM | wgpu::BufferUsages::COPY_DST,
             mapped_at_creation: false,
         });
-        let shadow = pipeline(device, include_str!("kiloton_shadow.wgsl"), "Kiloton nuclear shadow", "fs", format);
+        let shadow = pipeline(device, include_str!(concat!(env!("CARGO_MANIFEST_DIR"), "/data/kiloton_shadow.wgsl")), "Kiloton nuclear shadow", "fs", format);
         let shadow_ubos = (0..16)
             .map(|_| {
                 device.create_buffer(&wgpu::BufferDescriptor {

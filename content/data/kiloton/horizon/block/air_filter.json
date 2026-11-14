@@ -1,0 +1,32 @@
+{
+  "template": "minecraft:iron_block",
+  "properties": {
+    "hardness": 3.5,
+    "explosion_resistance": 6.0,
+    "sounds": "minecraft:iron_block",
+    "map_color": 6,
+    "requires_tool": true,
+    "occludes": false
+  },
+  "state_properties": {
+    "facing": {
+      "type": "enum",
+      "values": [
+        "down",
+        "up",
+        "north",
+        "south",
+        "west",
+        "east"
+      ]
+    },
+    "lit": {
+      "type": "boolean"
+    }
+  },
+  "default_state": {
+    "facing": "north",
+    "lit": "false"
+  },
+  "item": true
+}

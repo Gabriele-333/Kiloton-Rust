@@ -1,0 +1,118 @@
+{
+  "blast_near": {
+    "sounds": [
+      {
+        "name": "kiloton:blast_near",
+        "stream": true
+      }
+    ],
+    "subtitle": "subtitles.kiloton.blast_near"
+  },
+  "blast_far": {
+    "sounds": [
+      {
+        "name": "kiloton:blast_far",
+        "stream": true
+      }
+    ],
+    "subtitle": "subtitles.kiloton.blast_far"
+  },
+  "blast_distant": {
+    "sounds": [
+      {
+        "name": "kiloton:blast_distant",
+        "stream": true
+      }
+    ],
+    "subtitle": "subtitles.kiloton.blast_distant"
+  },
+  "rumble": {
+    "sounds": [
+      {
+        "name": "kiloton:rumble",
+        "stream": true
+      }
+    ],
+    "subtitle": "subtitles.kiloton.rumble"
+  },
+  "tremor": {
+    "sounds": [
+      {
+        "name": "kiloton:tremor",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.kiloton.tremor"
+  },
+  "debris": {
+    "sounds": [
+      {
+        "name": "kiloton:debris",
+        "stream": true
+      }
+    ],
+    "subtitle": "subtitles.kiloton.debris"
+  },
+  "beep": {
+    "sounds": [
+      {
+        "name": "kiloton:beep",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.kiloton.beep"
+  },
+  "arm": {
+    "sounds": [
+      {
+        "name": "kiloton:arm",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.kiloton.arm"
+  },
+  "geiger": {
+    "sounds": [
+      {
+        "name": "kiloton:geiger",
+        "stream": false
+      }
+    ]
+  },
+  "launch": {
+    "sounds": [
+      {
+        "name": "kiloton:launch",
+        "stream": true
+      }
+    ],
+    "subtitle": "subtitles.kiloton.launch"
+  },
+  "siren_start": {
+    "sounds": [
+      {
+        "name": "kiloton:siren_start",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.kiloton.siren_start"
+  },
+  "siren_wail": {
+    "sounds": [
+      {
+        "name": "kiloton:siren_wail",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.kiloton.siren_wail"
+  },
+  "siren_stop": {
+    "sounds": [
+      {
+        "name": "kiloton:siren_stop",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.kiloton.siren_stop"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "type": "minecraft:block",
+  "random_sequence": "kiloton:blocks/fallout_dust",
+  "pools": []
+}

@@ -1,0 +1,36 @@
+{
+  "display": {
+    "icon": {
+      "id": "kiloton:lithium_deuteride"
+    },
+    "title": {
+      "translate": "advancements.kiloton.fusion_fuel.title"
+    },
+    "description": {
+      "translate": "advancements.kiloton.fusion_fuel.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "lithium_deuteride": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "kiloton:lithium_deuteride"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "lithium_deuteride"
+    ]
+  ],
+  "sends_telemetry_event": false,
+  "parent": "kiloton:lithium"
+}

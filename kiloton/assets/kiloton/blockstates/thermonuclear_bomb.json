@@ -1,0 +1,60 @@
+{
+ "variants": {
+  "armed=false,facing=north,part=head": {
+   "model": "kiloton:block/thermonuclear_bomb",
+   "y": 0
+  },
+  "armed=false,facing=north,part=foot": {
+   "model": "kiloton:block/thermonuclear_bomb_foot"
+  },
+  "armed=true,facing=north,part=head": {
+   "model": "kiloton:block/thermonuclear_bomb_armed",
+   "y": 0
+  },
+  "armed=true,facing=north,part=foot": {
+   "model": "kiloton:block/thermonuclear_bomb_foot"
+  },
+  "armed=false,facing=east,part=head": {
+   "model": "kiloton:block/thermonuclear_bomb",
+   "y": 90
+  },
+  "armed=false,facing=east,part=foot": {
+   "model": "kiloton:block/thermonuclear_bomb_foot"
+  },
+  "armed=true,facing=east,part=head": {
+   "model": "kiloton:block/thermonuclear_bomb_armed",
+   "y": 90
+  },
+  "armed=true,facing=east,part=foot": {
+   "model": "kiloton:block/thermonuclear_bomb_foot"
+  },
+  "armed=false,facing=south,part=head": {
+   "model": "kiloton:block/thermonuclear_bomb",
+   "y": 180
+  },
+  "armed=false,facing=south,part=foot": {
+   "model": "kiloton:block/thermonuclear_bomb_foot"
+  },
+  "armed=true,facing=south,part=head": {
+   "model": "kiloton:block/thermonuclear_bomb_armed",
+   "y": 180
+  },
+  "armed=true,facing=south,part=foot": {
+   "model": "kiloton:block/thermonuclear_bomb_foot"
+  },
+  "armed=false,facing=west,part=head": {
+   "model": "kiloton:block/thermonuclear_bomb",
+   "y": 270
+  },
+  "armed=false,facing=west,part=foot": {
+   "model": "kiloton:block/thermonuclear_bomb_foot"
+  },
+  "armed=true,facing=west,part=head": {
+   "model": "kiloton:block/thermonuclear_bomb_armed",
+   "y": 270
+  },
+  "armed=true,facing=west,part=foot": {
+   "model": "kiloton:block/thermonuclear_bomb_foot"
+  }
+ }
+}

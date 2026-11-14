@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " I ",
+    "IGI",
+    "IMI"
+  ],
+  "key": {
+    "I": "minecraft:iron_block",
+    "G": "kiloton:guidance_unit",
+    "M": "kiloton:rocket_motor"
+  },
+  "result": {
+    "id": "kiloton:missile",
+    "count": 1
+  }
+}

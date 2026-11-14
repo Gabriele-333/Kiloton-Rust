@@ -1,0 +1,10 @@
+{
+ "variants": {
+  "lit=false": {
+   "model": "kiloton:block/rtg"
+  },
+  "lit=true": {
+   "model": "kiloton:block/rtg_on"
+  }
+ }
+}

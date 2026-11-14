@@ -1,0 +1,58 @@
+{
+  "display": {
+    "icon": {
+      "id": "kiloton:uranium_ore"
+    },
+    "title": {
+      "translate": "advancements.kiloton.root.title"
+    },
+    "description": {
+      "translate": "advancements.kiloton.root.description"
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false,
+    "background": "kiloton:block/deepslate_uranium_ore"
+  },
+  "criteria": {
+    "raw_uranium": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "kiloton:raw_uranium"
+          }
+        ]
+      }
+    },
+    "uranium_ore": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "kiloton:uranium_ore"
+          }
+        ]
+      }
+    },
+    "deepslate_uranium_ore": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "kiloton:deepslate_uranium_ore"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "raw_uranium",
+      "uranium_ore",
+      "deepslate_uranium_ore"
+    ]
+  ],
+  "sends_telemetry_event": false
+}

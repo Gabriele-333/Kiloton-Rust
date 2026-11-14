@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "soot=false": {
+      "model": "kiloton:block/fallout_dust"
+    },
+    "soot=true": {
+      "model": "kiloton:block/fallout_soot"
+    }
+  }
+}

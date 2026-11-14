@@ -1,0 +1,16 @@
+{
+ "variants": {
+  "on=false,powered=false": {
+   "model": "kiloton:block/decon_shower"
+  },
+  "on=false,powered=true": {
+   "model": "kiloton:block/decon_shower"
+  },
+  "on=true,powered=false": {
+   "model": "kiloton:block/decon_shower"
+  },
+  "on=true,powered=true": {
+   "model": "kiloton:block/decon_shower"
+  }
+ }
+}

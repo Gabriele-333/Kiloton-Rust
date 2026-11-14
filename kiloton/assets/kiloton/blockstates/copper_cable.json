@@ -1,0 +1,168 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "kiloton:block/copper_cable_core"
+      }
+    },
+    {
+      "when": {
+        "north": "cable|block|extract"
+      },
+      "apply": {
+        "model": "kiloton:block/copper_cable_arm"
+      }
+    },
+    {
+      "when": {
+        "north": "block"
+      },
+      "apply": {
+        "model": "kiloton:block/copper_cable_plate"
+      }
+    },
+    {
+      "when": {
+        "north": "extract"
+      },
+      "apply": {
+        "model": "kiloton:block/cable_extract_plate"
+      }
+    },
+    {
+      "when": {
+        "east": "cable|block|extract"
+      },
+      "apply": {
+        "model": "kiloton:block/copper_cable_arm",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "east": "block"
+      },
+      "apply": {
+        "model": "kiloton:block/copper_cable_plate",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "east": "extract"
+      },
+      "apply": {
+        "model": "kiloton:block/cable_extract_plate",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "south": "cable|block|extract"
+      },
+      "apply": {
+        "model": "kiloton:block/copper_cable_arm",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "south": "block"
+      },
+      "apply": {
+        "model": "kiloton:block/copper_cable_plate",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "south": "extract"
+      },
+      "apply": {
+        "model": "kiloton:block/cable_extract_plate",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "west": "cable|block|extract"
+      },
+      "apply": {
+        "model": "kiloton:block/copper_cable_arm",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "west": "block"
+      },
+      "apply": {
+        "model": "kiloton:block/copper_cable_plate",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "west": "extract"
+      },
+      "apply": {
+        "model": "kiloton:block/cable_extract_plate",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "up": "cable|block|extract"
+      },
+      "apply": {
+        "model": "kiloton:block/copper_cable_arm",
+        "x": 270
+      }
+    },
+    {
+      "when": {
+        "up": "block"
+      },
+      "apply": {
+        "model": "kiloton:block/copper_cable_plate",
+        "x": 270
+      }
+    },
+    {
+      "when": {
+        "up": "extract"
+      },
+      "apply": {
+        "model": "kiloton:block/cable_extract_plate",
+        "x": 270
+      }
+    },
+    {
+      "when": {
+        "down": "cable|block|extract"
+      },
+      "apply": {
+        "model": "kiloton:block/copper_cable_arm",
+        "x": 90
+      }
+    },
+    {
+      "when": {
+        "down": "block"
+      },
+      "apply": {
+        "model": "kiloton:block/copper_cable_plate",
+        "x": 90
+      }
+    },
+    {
+      "when": {
+        "down": "extract"
+      },
+      "apply": {
+        "model": "kiloton:block/cable_extract_plate",
+        "x": 90
+      }
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "display": {
+    "icon": {
+      "id": "kiloton:geiger_counter"
+    },
+    "title": {
+      "translate": "advancements.kiloton.hot_zone.title"
+    },
+    "description": {
+      "translate": "advancements.kiloton.hot_zone.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "done"
+    ]
+  ],
+  "sends_telemetry_event": false,
+  "parent": "kiloton:root"
+}

@@ -1,0 +1,47 @@
+{
+  "display": {
+    "icon": {
+      "id": "kiloton:uranium_core"
+    },
+    "title": {
+      "translate": "advancements.kiloton.core.title"
+    },
+    "description": {
+      "translate": "advancements.kiloton.core.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "uranium_core": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "kiloton:uranium_core"
+          }
+        ]
+      }
+    },
+    "plutonium_core": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "kiloton:plutonium_core"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "uranium_core",
+      "plutonium_core"
+    ]
+  ],
+  "sends_telemetry_event": false,
+  "parent": "kiloton:weapons_grade"
+}

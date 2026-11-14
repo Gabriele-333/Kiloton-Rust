@@ -1,0 +1,33 @@
+{
+  "template": "minecraft:iron_helmet",
+  "components": {
+    "minecraft:attribute_modifiers": [
+      {
+        "type": "minecraft:armor",
+        "amount": 1.0,
+        "id": "minecraft:armor.helmet",
+        "operation": "add_value",
+        "slot": "head"
+      },
+      {
+        "type": "minecraft:armor_toughness",
+        "amount": 0.0,
+        "id": "minecraft:armor.helmet",
+        "operation": "add_value",
+        "slot": "head"
+      }
+    ],
+    "minecraft:equippable": {
+      "asset_id": "kiloton:hazmat",
+      "equip_sound": "minecraft:item.armor.equip_leather",
+      "slot": "head"
+    },
+    "minecraft:enchantable": {
+      "value": 10
+    },
+    "minecraft:repairable": {
+      "items": "#minecraft:coals"
+    },
+    "minecraft:max_damage": 605
+  }
+}

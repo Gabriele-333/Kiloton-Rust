@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    "IBI",
+    "BCB",
+    "IBI"
+  ],
+  "key": {
+    "I": "minecraft:iron_ingot",
+    "B": "minecraft:iron_bars",
+    "C": "minecraft:copper_block"
+  },
+  "result": {
+    "id": "kiloton:rtg",
+    "count": 1
+  }
+}

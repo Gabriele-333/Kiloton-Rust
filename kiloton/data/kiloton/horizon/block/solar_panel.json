@@ -1,0 +1,23 @@
+{
+  "template": "minecraft:iron_block",
+  "properties": {
+    "hardness": 1.5,
+    "explosion_resistance": 3.0,
+    "sounds": "minecraft:iron_block",
+    "map_color": 25,
+    "occludes": false
+  },
+  "shapes": {
+    "default": [
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.3125,
+        1.0
+      ]
+    ]
+  },
+  "item": true
+}

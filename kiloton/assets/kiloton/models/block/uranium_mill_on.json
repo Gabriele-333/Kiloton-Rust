@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/orientable_with_bottom",
+  "textures": {
+    "front": "kiloton:block/uranium_mill_front_on",
+    "side": "kiloton:block/uranium_mill_side",
+    "top": "kiloton:block/uranium_mill_top",
+    "bottom": "kiloton:block/machine_bottom"
+  }
+}

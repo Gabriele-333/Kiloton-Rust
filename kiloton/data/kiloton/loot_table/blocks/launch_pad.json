@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:block",
+  "random_sequence": "kiloton:blocks/launch_pad",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "kiloton:launch_pad"
+        }
+      ],
+      "condition": {
+        "type": "minecraft:survives_explosion"
+      }
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+ "variants": {
+  "": {
+   "model": "kiloton:block/sam_launcher"
+  }
+ }
+}

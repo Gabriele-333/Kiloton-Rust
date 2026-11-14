@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:block",
+  "random_sequence": "kiloton:blocks/radar",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "kiloton:radar"
+        }
+      ],
+      "condition": {
+        "type": "minecraft:survives_explosion"
+      }
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    "ILI",
+    "ICI",
+    "BRB"
+  ],
+  "key": {
+    "I": "minecraft:iron_ingot",
+    "L": "minecraft:lightning_rod",
+    "C": "minecraft:compass",
+    "B": "minecraft:iron_block",
+    "R": "minecraft:redstone_block"
+  },
+  "result": {
+    "id": "kiloton:radar",
+    "count": 1
+  }
+}

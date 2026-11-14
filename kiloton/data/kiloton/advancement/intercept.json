@@ -1,0 +1,32 @@
+{
+  "display": {
+    "icon": {
+      "id": "kiloton:interceptor"
+    },
+    "title": {
+      "translate": "advancements.kiloton.intercept.title"
+    },
+    "description": {
+      "translate": "advancements.kiloton.intercept.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "done"
+    ]
+  ],
+  "sends_telemetry_event": false,
+  "parent": "kiloton:launch",
+  "rewards": {
+    "experience": 100
+  }
+}

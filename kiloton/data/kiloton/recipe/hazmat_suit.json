@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "Y Y",
+    "YSY",
+    "YYY"
+  ],
+  "key": {
+    "Y": "minecraft:yellow_wool",
+    "S": "minecraft:slime_ball"
+  },
+  "result": {
+    "id": "kiloton:hazmat_suit",
+    "count": 1
+  }
+}

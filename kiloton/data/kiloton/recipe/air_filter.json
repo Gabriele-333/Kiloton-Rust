@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    "IBI",
+    "WCW",
+    "IRI"
+  ],
+  "key": {
+    "I": "minecraft:iron_ingot",
+    "B": "minecraft:iron_bars",
+    "W": "minecraft:white_wool",
+    "C": "minecraft:charcoal",
+    "R": "minecraft:redstone"
+  },
+  "result": {
+    "id": "kiloton:air_filter",
+    "count": 1
+  }
+}

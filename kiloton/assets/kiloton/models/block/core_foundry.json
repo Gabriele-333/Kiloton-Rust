@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/orientable_with_bottom",
+  "textures": {
+    "front": "kiloton:block/core_foundry_front",
+    "side": "kiloton:block/core_foundry_side",
+    "top": "kiloton:block/core_foundry_top",
+    "bottom": "kiloton:block/machine_bottom"
+  }
+}

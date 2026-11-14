@@ -1,0 +1,10 @@
+{
+ "variants": {
+  "powered=false": {
+   "model": "kiloton:block/burst_detector"
+  },
+  "powered=true": {
+   "model": "kiloton:block/burst_detector_on"
+  }
+ }
+}

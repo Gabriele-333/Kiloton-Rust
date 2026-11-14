@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    "GDG",
+    "ISI",
+    "CCC"
+  ],
+  "key": {
+    "G": "minecraft:glass_pane",
+    "D": "minecraft:daylight_detector",
+    "I": "minecraft:iron_ingot",
+    "S": "minecraft:sculk_sensor",
+    "C": "minecraft:smooth_stone"
+  },
+  "result": {
+    "id": "kiloton:burst_detector",
+    "count": 1
+  }
+}

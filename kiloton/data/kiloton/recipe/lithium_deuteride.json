@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "LHL",
+    "HLH",
+    "LHL"
+  ],
+  "key": {
+    "L": "kiloton:lithium_6",
+    "H": "kiloton:heavy_water"
+  },
+  "result": {
+    "id": "kiloton:lithium_deuteride",
+    "count": 1
+  }
+}

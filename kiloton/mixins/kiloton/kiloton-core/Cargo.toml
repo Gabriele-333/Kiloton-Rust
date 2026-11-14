@@ -1,0 +1,13 @@
+[package]
+name = "kiloton-core"
+version = "0.1.0"
+edition = "2024"
+publish = false
+description = "Kiloton's physics and visual model: pure math, no game types"
+
+# No dependencies: only crates in Horizon's Cargo.lock would be allowed, and none are needed.
+[dependencies]
+
+# The client's shaders (in the [api] crate) are checked here with the game's own WGSL front end.
+[dev-dependencies]
+naga = { version = "30.0.1", features = ["wgsl-in"] }

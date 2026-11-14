@@ -1,0 +1,77 @@
+{
+  "textures": {
+    "x": "kiloton:block/cable_extract",
+    "particle": "kiloton:block/cable_extract"
+  },
+  "elements": [
+    {
+      "from": [
+        3,
+        3,
+        0
+      ],
+      "to": [
+        13,
+        13,
+        1.5
+      ],
+      "faces": {
+        "north": {
+          "texture": "#x",
+          "uv": [
+            3,
+            3,
+            13,
+            13
+          ],
+          "cullface": "north"
+        },
+        "south": {
+          "texture": "#x",
+          "uv": [
+            3,
+            3,
+            13,
+            13
+          ]
+        },
+        "up": {
+          "texture": "#x",
+          "uv": [
+            3,
+            0,
+            13,
+            1
+          ]
+        },
+        "down": {
+          "texture": "#x",
+          "uv": [
+            3,
+            15,
+            13,
+            16
+          ]
+        },
+        "east": {
+          "texture": "#x",
+          "uv": [
+            0,
+            3,
+            1,
+            13
+          ]
+        },
+        "west": {
+          "texture": "#x",
+          "uv": [
+            15,
+            3,
+            16,
+            13
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "kiloton:block/radar"
+    },
+    "powered=true": {
+      "model": "kiloton:block/radar"
+    }
+  }
+}

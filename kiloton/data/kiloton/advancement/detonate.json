@@ -1,0 +1,32 @@
+{
+  "display": {
+    "icon": {
+      "id": "kiloton:nuclear_bomb"
+    },
+    "title": {
+      "translate": "advancements.kiloton.detonate.title"
+    },
+    "description": {
+      "translate": "advancements.kiloton.detonate.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "done"
+    ]
+  ],
+  "sends_telemetry_event": false,
+  "parent": "kiloton:core",
+  "rewards": {
+    "experience": 100
+  }
+}

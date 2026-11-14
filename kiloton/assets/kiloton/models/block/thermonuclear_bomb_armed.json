@@ -1,0 +1,7 @@
+{
+ "parent": "kiloton:block/thermonuclear_bomb",
+ "textures": {
+  "light": "kiloton:block/nuclear_bomb_light_on",
+  "panel": "kiloton:block/nuclear_bomb_panel_on"
+ }
+}

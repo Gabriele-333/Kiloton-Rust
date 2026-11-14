@@ -1,0 +1,33 @@
+{
+  "template": "minecraft:iron_leggings",
+  "components": {
+    "minecraft:attribute_modifiers": [
+      {
+        "type": "minecraft:armor",
+        "amount": 2.0,
+        "id": "minecraft:armor.leggings",
+        "operation": "add_value",
+        "slot": "legs"
+      },
+      {
+        "type": "minecraft:armor_toughness",
+        "amount": 0.0,
+        "id": "minecraft:armor.leggings",
+        "operation": "add_value",
+        "slot": "legs"
+      }
+    ],
+    "minecraft:equippable": {
+      "asset_id": "kiloton:hazmat",
+      "equip_sound": "minecraft:item.armor.equip_leather",
+      "slot": "legs"
+    },
+    "minecraft:enchantable": {
+      "value": 10
+    },
+    "minecraft:repairable": {
+      "items": "#minecraft:coals"
+    },
+    "minecraft:max_damage": 180
+  }
+}

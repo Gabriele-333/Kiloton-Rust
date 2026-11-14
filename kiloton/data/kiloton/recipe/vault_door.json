@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    "ODO",
+    "DND",
+    "ODO"
+  ],
+  "key": {
+    "O": "minecraft:obsidian",
+    "D": "kiloton:bunker_door",
+    "N": "minecraft:netherite_ingot"
+  },
+  "result": {
+    "id": "kiloton:vault_door",
+    "count": 1
+  }
+}

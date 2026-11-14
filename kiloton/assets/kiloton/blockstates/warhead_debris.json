@@ -1,0 +1,21 @@
+{
+ "variants": {
+  "": [
+   {
+    "model": "kiloton:block/warhead_debris"
+   },
+   {
+    "model": "kiloton:block/warhead_debris",
+    "y": 90
+   },
+   {
+    "model": "kiloton:block/warhead_debris",
+    "y": 180
+   },
+   {
+    "model": "kiloton:block/warhead_debris",
+    "y": 270
+   }
+  ]
+ }
+}

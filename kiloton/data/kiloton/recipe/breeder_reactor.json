@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BKB",
+    "KLK",
+    "BKB"
+  ],
+  "key": {
+    "B": "minecraft:iron_block",
+    "K": "minecraft:coal_block",
+    "L": "kiloton:low_enriched_uranium"
+  },
+  "result": {
+    "id": "kiloton:breeder_reactor",
+    "count": 1
+  }
+}

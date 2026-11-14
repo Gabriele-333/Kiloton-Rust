@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "part=0": {
+      "model": "kiloton:block/radar_part_0"
+    },
+    "part=1": {
+      "model": "kiloton:block/radar_part_1"
+    },
+    "part=2": {
+      "model": "kiloton:block/radar_part_2"
+    },
+    "part=3": {
+      "model": "kiloton:block/radar_part_3"
+    },
+    "part=4": {
+      "model": "kiloton:block/radar"
+    },
+    "part=5": {
+      "model": "kiloton:block/radar_part_5"
+    },
+    "part=6": {
+      "model": "kiloton:block/radar_part_6"
+    },
+    "part=7": {
+      "model": "kiloton:block/radar_part_7"
+    },
+    "part=8": {
+      "model": "kiloton:block/radar_part_8"
+    },
+    "part=9": {
+      "model": "kiloton:block/radar_pedestal"
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "template": "minecraft:iron_block",
+  "properties": {
+    "hardness": -1.0,
+    "explosion_resistance": 3600000.0,
+    "sounds": "minecraft:iron_block",
+    "map_color": 8,
+    "occludes": false
+  },
+  "state_properties": {
+    "part": {
+      "type": "enum",
+      "values": [
+        "1",
+        "2",
+        "3"
+      ]
+    }
+  },
+  "default_state": {
+    "part": "1"
+  },
+  "shapes": {
+    "property": "part",
+    "values": {
+      "1": [
+        [
+          0.03125,
+          0.0,
+          0.03125,
+          0.96875,
+          1.0,
+          0.96875
+        ]
+      ]
+    },
+    "default": [
+      [
+        0.265625,
+        0.0,
+        0.265625,
+        0.734375,
+        1.0,
+        0.734375
+      ]
+    ]
+  },
+  "item": false
+}

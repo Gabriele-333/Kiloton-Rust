@@ -1,0 +1,6 @@
+run/
+target/
+parity/build/
+parity/out/
+__pycache__/
+*.pyc

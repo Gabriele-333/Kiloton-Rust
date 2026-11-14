@@ -1,0 +1,37 @@
+{
+ "variants": {
+  "part=0": {
+   "model": "kiloton:block/sam_part_0"
+  },
+  "part=1": {
+   "model": "kiloton:block/sam_part_1"
+  },
+  "part=2": {
+   "model": "kiloton:block/sam_part_2"
+  },
+  "part=3": {
+   "model": "kiloton:block/sam_part_3"
+  },
+  "part=4": {
+   "model": "kiloton:block/sam_launcher"
+  },
+  "part=5": {
+   "model": "kiloton:block/sam_part_5"
+  },
+  "part=6": {
+   "model": "kiloton:block/sam_part_6"
+  },
+  "part=7": {
+   "model": "kiloton:block/sam_part_7"
+  },
+  "part=8": {
+   "model": "kiloton:block/sam_part_8"
+  },
+  "part=9": {
+   "model": "kiloton:block/sam_turret"
+  },
+  "part=10": {
+   "model": "kiloton:block/sam_launcher_arm"
+  }
+ }
+}

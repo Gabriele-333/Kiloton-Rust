@@ -1,0 +1,58 @@
+{
+  "display": {
+    "icon": {
+      "id": "kiloton:raw_lithium"
+    },
+    "title": {
+      "translate": "advancements.kiloton.lithium.title"
+    },
+    "description": {
+      "translate": "advancements.kiloton.lithium.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "raw_lithium": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "kiloton:raw_lithium"
+          }
+        ]
+      }
+    },
+    "lithium_ore": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "kiloton:lithium_ore"
+          }
+        ]
+      }
+    },
+    "deepslate_lithium_ore": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "kiloton:deepslate_lithium_ore"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "raw_lithium",
+      "lithium_ore",
+      "deepslate_lithium_ore"
+    ]
+  ],
+  "sends_telemetry_event": false,
+  "parent": "kiloton:root"
+}

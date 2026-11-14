@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:block",
+  "random_sequence": "kiloton:blocks/sam_launcher",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "kiloton:sam_launcher"
+        }
+      ],
+      "condition": {
+        "type": "minecraft:survives_explosion"
+      }
+    }
+  ]
+}

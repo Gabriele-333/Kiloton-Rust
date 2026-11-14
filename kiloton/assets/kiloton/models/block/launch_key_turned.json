@@ -1,0 +1,224 @@
+{
+ "parent": "minecraft:block/block",
+ "ambientocclusion": false,
+ "textures": {
+  "particle": "kiloton:block/launch_key_plate",
+  "plate": "kiloton:block/launch_key_plate",
+  "brass": "kiloton:block/launch_key_brass"
+ },
+ "elements": [
+  {
+   "from": [
+    3,
+    3,
+    14.5
+   ],
+   "to": [
+    13,
+    13,
+    16
+   ],
+   "faces": {
+    "north": {
+     "texture": "#plate",
+     "uv": [
+      3,
+      3,
+      13,
+      13
+     ]
+    },
+    "south": {
+     "texture": "#plate",
+     "uv": [
+      3,
+      3,
+      13,
+      13
+     ]
+    },
+    "east": {
+     "texture": "#plate",
+     "uv": [
+      0,
+      3,
+      1.5,
+      13
+     ]
+    },
+    "west": {
+     "texture": "#plate",
+     "uv": [
+      14.5,
+      3,
+      16,
+      13
+     ]
+    },
+    "up": {
+     "texture": "#plate",
+     "uv": [
+      3,
+      14.5,
+      13,
+      16
+     ]
+    },
+    "down": {
+     "texture": "#plate",
+     "uv": [
+      3,
+      0,
+      13,
+      1.5
+     ]
+    }
+   }
+  },
+  {
+   "from": [
+    6.5,
+    6.5,
+    13.5
+   ],
+   "to": [
+    9.5,
+    9.5,
+    14.5
+   ],
+   "faces": {
+    "north": {
+     "texture": "#brass",
+     "uv": [
+      6.5,
+      6.5,
+      9.5,
+      9.5
+     ]
+    },
+    "south": {
+     "texture": "#brass",
+     "uv": [
+      6.5,
+      6.5,
+      9.5,
+      9.5
+     ]
+    },
+    "east": {
+     "texture": "#brass",
+     "uv": [
+      1.5,
+      6.5,
+      2.5,
+      9.5
+     ]
+    },
+    "west": {
+     "texture": "#brass",
+     "uv": [
+      13.5,
+      6.5,
+      14.5,
+      9.5
+     ]
+    },
+    "up": {
+     "texture": "#brass",
+     "uv": [
+      6.5,
+      13.5,
+      9.5,
+      14.5
+     ]
+    },
+    "down": {
+     "texture": "#brass",
+     "uv": [
+      6.5,
+      1.5,
+      9.5,
+      2.5
+     ]
+    }
+   }
+  },
+  {
+   "from": [
+    5.5,
+    7.25,
+    11.0
+   ],
+   "to": [
+    10.5,
+    8.75,
+    13.5
+   ],
+   "faces": {
+    "north": {
+     "texture": "#brass",
+     "uv": [
+      5.5,
+      7.25,
+      10.5,
+      8.75
+     ]
+    },
+    "south": {
+     "texture": "#brass",
+     "uv": [
+      5.5,
+      7.25,
+      10.5,
+      8.75
+     ]
+    },
+    "east": {
+     "texture": "#brass",
+     "uv": [
+      2.5,
+      7.25,
+      5.0,
+      8.75
+     ]
+    },
+    "west": {
+     "texture": "#brass",
+     "uv": [
+      11.0,
+      7.25,
+      13.5,
+      8.75
+     ]
+    },
+    "up": {
+     "texture": "#brass",
+     "uv": [
+      5.5,
+      11.0,
+      10.5,
+      13.5
+     ]
+    },
+    "down": {
+     "texture": "#brass",
+     "uv": [
+      5.5,
+      2.5,
+      10.5,
+      5.0
+     ]
+    }
+   },
+   "rotation": {
+    "origin": [
+     8,
+     8,
+     12
+    ],
+    "axis": "z",
+    "angle": -45
+   }
+  }
+ ]
+}

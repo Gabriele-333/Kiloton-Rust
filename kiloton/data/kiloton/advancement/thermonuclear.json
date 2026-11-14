@@ -1,0 +1,32 @@
+{
+  "display": {
+    "icon": {
+      "id": "kiloton:thermonuclear_bomb"
+    },
+    "title": {
+      "translate": "advancements.kiloton.thermonuclear.title"
+    },
+    "description": {
+      "translate": "advancements.kiloton.thermonuclear.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "done"
+    ]
+  ],
+  "sends_telemetry_event": false,
+  "parent": "kiloton:fusion_fuel",
+  "rewards": {
+    "experience": 100
+  }
+}

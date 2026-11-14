@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    "B B",
+    "IRI",
+    "SSS"
+  ],
+  "key": {
+    "B": "minecraft:iron_bars",
+    "I": "minecraft:iron_block",
+    "R": "minecraft:redstone_block",
+    "S": "minecraft:smooth_stone"
+  },
+  "result": {
+    "id": "kiloton:launch_pad",
+    "count": 1
+  }
+}

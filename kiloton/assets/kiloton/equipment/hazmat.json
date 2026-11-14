@@ -1,0 +1,6 @@
+{
+  "layers": {
+    "humanoid": [{"texture": "kiloton:hazmat"}],
+    "humanoid_leggings": [{"texture": "kiloton:hazmat"}]
+  }
+}

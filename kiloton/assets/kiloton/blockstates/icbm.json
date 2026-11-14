@@ -1,0 +1,13 @@
+{
+ "variants": {
+  "part=1": {
+   "model": "kiloton:block/icbm_1"
+  },
+  "part=2": {
+   "model": "kiloton:block/icbm_2"
+  },
+  "part=3": {
+   "model": "kiloton:block/icbm_3"
+  }
+ }
+}

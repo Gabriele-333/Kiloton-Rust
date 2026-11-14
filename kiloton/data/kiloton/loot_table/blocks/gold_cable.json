@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:block",
+  "random_sequence": "kiloton:blocks/gold_cable",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "kiloton:gold_cable"
+        }
+      ],
+      "condition": {
+        "type": "minecraft:survives_explosion"
+      }
+    }
+  ]
+}

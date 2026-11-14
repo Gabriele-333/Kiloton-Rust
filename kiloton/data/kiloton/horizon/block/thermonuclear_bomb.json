@@ -1,0 +1,87 @@
+{
+  "template": "minecraft:crafting_table",
+  "properties": {
+    "hardness": 5.0,
+    "explosion_resistance": 12.0,
+    "sounds": "minecraft:iron_block",
+    "map_color": 22,
+    "requires_tool": true,
+    "occludes": false
+  },
+  "state_properties": {
+    "facing": {
+      "type": "enum",
+      "values": [
+        "north",
+        "south",
+        "west",
+        "east"
+      ]
+    },
+    "part": {
+      "type": "enum",
+      "values": [
+        "head",
+        "foot"
+      ]
+    },
+    "armed": {
+      "type": "boolean"
+    }
+  },
+  "default_state": {
+    "facing": "north",
+    "part": "head",
+    "armed": "false"
+  },
+  "shapes": {
+    "property": "facing",
+    "values": {
+      "north": [
+        [
+          0.0,
+          0.0,
+          0.09375,
+          1.0,
+          0.9375,
+          0.90625
+        ]
+      ],
+      "south": [
+        [
+          0.0,
+          0.0,
+          0.09375,
+          1.0,
+          0.9375,
+          0.90625
+        ]
+      ],
+      "east": [
+        [
+          0.09375,
+          0.0,
+          0.0,
+          0.90625,
+          0.9375,
+          1.0
+        ]
+      ],
+      "west": [
+        [
+          0.09375,
+          0.0,
+          0.0,
+          0.90625,
+          0.9375,
+          1.0
+        ]
+      ]
+    }
+  },
+  "item": true,
+  "components": {
+    "minecraft:max_stack_size": 1,
+    "minecraft:rarity": "epic"
+  }
+}

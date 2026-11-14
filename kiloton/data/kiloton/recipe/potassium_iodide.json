@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " D ",
+    "DPD",
+    " D "
+  ],
+  "key": {
+    "D": "minecraft:dried_kelp",
+    "P": "minecraft:paper"
+  },
+  "result": {
+    "id": "kiloton:potassium_iodide",
+    "count": 4
+  }
+}

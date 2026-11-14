@@ -1,0 +1,29 @@
+{
+  "display": {
+    "icon": {
+      "id": "kiloton:shelter_meter"
+    },
+    "title": {
+      "translate": "advancements.kiloton.fallout_shelter.title"
+    },
+    "description": {
+      "translate": "advancements.kiloton.fallout_shelter.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "done"
+    ]
+  ],
+  "sends_telemetry_event": false,
+  "parent": "kiloton:root"
+}

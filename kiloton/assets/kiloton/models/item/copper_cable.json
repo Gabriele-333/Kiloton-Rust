@@ -1,0 +1,77 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "t": "kiloton:block/copper_cable",
+    "particle": "kiloton:block/copper_cable"
+  },
+  "elements": [
+    {
+      "from": [
+        0,
+        5,
+        5
+      ],
+      "to": [
+        16,
+        11,
+        11
+      ],
+      "faces": {
+        "up": {
+          "texture": "#t",
+          "uv": [
+            0,
+            0,
+            16,
+            6
+          ]
+        },
+        "down": {
+          "texture": "#t",
+          "uv": [
+            0,
+            0,
+            16,
+            6
+          ]
+        },
+        "north": {
+          "texture": "#t",
+          "uv": [
+            0,
+            0,
+            16,
+            6
+          ]
+        },
+        "south": {
+          "texture": "#t",
+          "uv": [
+            0,
+            0,
+            16,
+            6
+          ]
+        },
+        "east": {
+          "texture": "#t",
+          "uv": [
+            0,
+            6,
+            6,
+            12
+          ]
+        },
+        "west": {
+          "texture": "#t",
+          "uv": [
+            0,
+            6,
+            6,
+            12
+          ]
+        }
+      }
+    }
+  ]
+}

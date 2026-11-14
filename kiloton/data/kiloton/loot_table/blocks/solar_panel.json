@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:block",
+  "random_sequence": "kiloton:blocks/solar_panel",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "kiloton:solar_panel"
+        }
+      ],
+      "condition": {
+        "type": "minecraft:survives_explosion"
+      }
+    }
+  ]
+}

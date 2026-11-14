@@ -1,0 +1,33 @@
+{
+  "template": "minecraft:iron_boots",
+  "components": {
+    "minecraft:attribute_modifiers": [
+      {
+        "type": "minecraft:armor",
+        "amount": 1.0,
+        "id": "minecraft:armor.boots",
+        "operation": "add_value",
+        "slot": "feet"
+      },
+      {
+        "type": "minecraft:armor_toughness",
+        "amount": 0.0,
+        "id": "minecraft:armor.boots",
+        "operation": "add_value",
+        "slot": "feet"
+      }
+    ],
+    "minecraft:equippable": {
+      "asset_id": "kiloton:hazmat",
+      "equip_sound": "minecraft:item.armor.equip_leather",
+      "slot": "feet"
+    },
+    "minecraft:enchantable": {
+      "value": 10
+    },
+    "minecraft:repairable": {
+      "items": "#minecraft:coals"
+    },
+    "minecraft:max_damage": 156
+  }
+}

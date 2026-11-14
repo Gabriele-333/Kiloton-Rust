@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "DND",
+    "DSD",
+    "DCD"
+  ],
+  "key": {
+    "D": "kiloton:depleted_uranium",
+    "N": "minecraft:netherite_ingot",
+    "S": "kiloton:hazmat_suit",
+    "C": "kiloton:nuclear_cell"
+  },
+  "result": {
+    "id": "kiloton:exosuit_chestplate",
+    "count": 1
+  }
+}

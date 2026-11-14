@@ -1,0 +1,85 @@
+# Kiloton for Horizon: a native trait mod. Its blocks, items, textures, models, sounds, languages
+# and data are the content beside this folder (horizon-mod.toml, assets/, data/), the same mod id.
+[mod]
+id = "kiloton"
+version = "1.3.0"
+
+# The Horizon commit it is built and tested on.
+[compatibility]
+horizon_revision = "1bec6d447afffd35d18401d80bbee78982235975"
+
+# The hooks: horizon_client::mod_api::Hooks, returned by api's hooks().
+[api]
+path = "api"
+
+# What the blast needs of every block state and of the level being ticked, which the Host API
+# doesn't give: the game's block facts (hardness, blast resistance, light, fluids), its blocks,
+# whether a state can collide, how readily it burns, the axis of a pillar and whether a door is open. At the head of the
+# level's tick, before the level_tick_post hook, so the sweep reads here and writes there.
+[[injection]]
+id = "level-read"
+hook = "level_tick_post"
+hook_version = 1
+kind = "HEAD"
+trait_method = "level_read"
+bindings = [
+    { name = "dimension", ty = "&str", value = "dimension" },
+    { name = "facts", ty = "&horizon_client::blocks::BlockFacts", value = "self.res.facts()" },
+    { name = "world", ty = "&horizon_client::world::World", value = "&self.world" },
+    { name = "collides", ty = "&dyn Fn(u32) -> bool", value = "&|s: u32| self.res.collision().may_collide(horizon_world::registry::BlockStateId(s))" },
+    { name = "ignite_odds", ty = "&dyn Fn(u32) -> i32", value = "&|s: u32| self.res.behaviours().data(horizon_world::registry::BlockStateId(s)).ignite_odds" },
+    { name = "axis", ty = "&dyn Fn(u32) -> u8", value = "&|s: u32| match self.pack.assets.registry.state(horizon_world::registry::BlockStateId(s)).and_then(|b| b.properties.get(\"axis\")).map(|v| v.as_str()) { Some(\"x\") => 1u8, Some(\"y\") => 2, Some(\"z\") => 3, _ => 0 }" },
+    { name = "open", ty = "&dyn Fn(u32) -> u8", value = "&|s: u32| match self.pack.assets.registry.state(horizon_world::registry::BlockStateId(s)).and_then(|b| b.properties.get(\"open\")).map(|v| v.as_str()) { Some(\"false\") => 1u8, Some(\"true\") => 2, _ => 0 }" },
+]
+
+# Java gives the fluids at the crater's edge a tick so the water there pours into the hole
+# (`BlastShape.edgeFluids`). The Host API has no tick scheduling at a level hook, and a bulk edit
+# tells no neighbour of a plain block, so this hands the mod the level's scheduler, right after
+# `level-read` (injection ids run in order) and before the level_tick_post hook.
+[[injection]]
+id = "level-ticks"
+hook = "level_tick_post"
+hook_version = 1
+kind = "HEAD"
+trait_method = "level_ticks"
+bindings = [
+    { name = "dimension", ty = "&str", value = "dimension" },
+    { name = "schedule_fluids", ty = "&mut dyn FnMut(&[([i32; 3], u8, i32)])", value = "&mut |wanted: &[([i32; 3], u8, i32)]| self.with_level(|_, level, ticks| for &(p, kind, delay) in wanted { let fluid = match kind { 1 => \"minecraft:water\", 2 => \"minecraft:flowing_water\", 3 => \"minecraft:lava\", _ => \"minecraft:flowing_lava\" }; let _ = level.native_schedule_fluid_tick(ticks, p, fluid, delay); })" },
+]
+
+# A device whose pit gives no nuclear yield goes off with its explosive lenses only: a conventional blast of 6, as
+# Java's `level.explode(..., 6, TNT)`. The game's `native_explode` is not on the Host API, so this hands the mod
+# the level's explosions at the head of its tick (the bomb queues them from its block entity's tick).
+[[injection]]
+id = "level-explode"
+hook = "level_tick_post"
+hook_version = 1
+kind = "HEAD"
+trait_method = "level_explode"
+bindings = [
+    { name = "dimension", ty = "&str", value = "dimension" },
+    { name = "explode", ty = "&mut dyn FnMut([f64; 3], f32) -> bool", value = "&mut |c: [f64; 3], r: f32| self.native_explode(dimension, c, r, false, super::native_explosions::NativeBlast::Tnt)" },
+]
+
+# Energy between blocks: the breeder reactor pushes its power into what it touches and the creative source fills it
+# (Java: `Energies.send`, `PowerBuffer.push`). The game's `native_move_energy` and `native_energy_insert` are not on
+# the Host API, and a block entity is out of the world while it ticks, so the machines queue their moves in their
+# tick and this does them at the head of the level's tick end, after every block entity ticked. `energy(op, a, face_a,
+# b, face_b, amount)`: op 0 moves up to `amount` from a (through face_a) into b (through face_b), 1 inserts into a,
+# 2 extracts from a, 3 reads a's amount (-1 where no buffer is), 4 its capacity. Faces as `Direction::ALL` (down, up,
+# north, south, west, east).
+[[injection]]
+id = "level-energy"
+hook = "level_tick_post"
+hook_version = 1
+kind = "HEAD"
+trait_method = "level_energy"
+bindings = [
+    { name = "dimension", ty = "&str", value = "dimension" },
+    { name = "energy", ty = "&mut dyn FnMut(u8, [i32; 3], u8, [i32; 3], u8, i32) -> i32", value = "&mut |op: u8, a: [i32; 3], fa: u8, b: [i32; 3], fb: u8, n: i32| { let d = |i: u8| horizon_core::geometry::Direction::ALL[(i % 6) as usize]; match op { 0 => self.native_move_energy(dimension, a, d(fa), b, d(fb), n), 1 => self.native_energy_insert(a, d(fa), n, false), 2 => self.native_energy_extract(dimension, a, d(fa), n, false), 3 => self.native_energy(dimension, a, d(fa)).map_or(-1, |e| e.amount), _ => self.native_energy(dimension, a, d(fa)).map_or(-1, |e| e.capacity) } }" },
+]
+
+# The physics and the visual model: pure Rust, compiled once and tested on its own.
+[[crate]]
+id = "kiloton-core"
+path = "kiloton-core"

@@ -1,0 +1,13 @@
+{
+  "values": [
+    "kiloton:nuclear_bomb",
+    "kiloton:thermonuclear_bomb",
+    "kiloton:uranium_ore",
+    "kiloton:deepslate_uranium_ore",
+    "kiloton:lithium_ore",
+    "kiloton:deepslate_lithium_ore",
+    "kiloton:blast_door",
+    "kiloton:bunker_door",
+    "kiloton:blast_hatch"
+  ]
+}

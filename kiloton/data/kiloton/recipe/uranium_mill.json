@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "IHI",
+    "GCG",
+    "IRI"
+  ],
+  "key": {
+    "I": "minecraft:iron_ingot",
+    "H": "minecraft:hopper",
+    "G": "minecraft:grindstone",
+    "C": "minecraft:cauldron",
+    "R": "minecraft:redstone"
+  },
+  "result": {
+    "id": "kiloton:uranium_mill",
+    "count": 1
+  }
+}

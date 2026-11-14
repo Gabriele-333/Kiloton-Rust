@@ -1,0 +1,83 @@
+{
+ "parent": "minecraft:block/block",
+ "ambientocclusion": false,
+ "textures": {
+  "particle": "kiloton:block/sam_deck_side",
+  "deck": "kiloton:block/sam_deck_top",
+  "deck_side": "kiloton:block/sam_deck_side",
+  "base": "kiloton:block/sam_base",
+  "top": "kiloton:block/sam_top",
+  "rail": "kiloton:block/sam_rail",
+  "cabinet": "kiloton:block/sam_cabinet"
+ },
+ "elements": [
+  {
+   "from": [
+    0,
+    0,
+    0
+   ],
+   "to": [
+    16,
+    8,
+    16
+   ],
+   "faces": {
+    "north": {
+     "texture": "#deck_side",
+     "uv": [
+      0,
+      8,
+      16,
+      16
+     ]
+    },
+    "south": {
+     "texture": "#deck_side",
+     "uv": [
+      0,
+      8,
+      16,
+      16
+     ]
+    },
+    "east": {
+     "texture": "#deck_side",
+     "uv": [
+      0,
+      8,
+      16,
+      16
+     ]
+    },
+    "west": {
+     "texture": "#deck_side",
+     "uv": [
+      0,
+      8,
+      16,
+      16
+     ]
+    },
+    "up": {
+     "texture": "#deck",
+     "uv": [
+      0,
+      0,
+      16,
+      16
+     ]
+    },
+    "down": {
+     "texture": "#base",
+     "uv": [
+      0,
+      0,
+      16,
+      16
+     ]
+    }
+   }
+  }
+ ]
+}

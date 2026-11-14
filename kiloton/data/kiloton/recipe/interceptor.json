@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " P ",
+    "IGI",
+    "IMI"
+  ],
+  "key": {
+    "P": "minecraft:gunpowder",
+    "I": "minecraft:iron_ingot",
+    "G": "kiloton:guidance_unit",
+    "M": "kiloton:rocket_motor"
+  },
+  "result": {
+    "id": "kiloton:interceptor",
+    "count": 2
+  }
+}

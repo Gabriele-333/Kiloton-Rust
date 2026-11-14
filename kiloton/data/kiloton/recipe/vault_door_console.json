@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    "RLR",
+    "IBI"
+  ],
+  "key": {
+    "R": "minecraft:redstone",
+    "L": "minecraft:lever",
+    "I": "minecraft:iron_ingot",
+    "B": "minecraft:iron_block"
+  },
+  "result": {
+    "id": "kiloton:vault_door_console",
+    "count": 1
+  }
+}

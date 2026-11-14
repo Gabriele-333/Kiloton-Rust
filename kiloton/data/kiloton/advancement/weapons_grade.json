@@ -1,0 +1,36 @@
+{
+  "display": {
+    "icon": {
+      "id": "kiloton:weapons_grade_uranium"
+    },
+    "title": {
+      "translate": "advancements.kiloton.weapons_grade.title"
+    },
+    "description": {
+      "translate": "advancements.kiloton.weapons_grade.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "weapons_grade_uranium": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "kiloton:weapons_grade_uranium"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "weapons_grade_uranium"
+    ]
+  ],
+  "sends_telemetry_event": false,
+  "parent": "kiloton:enrich"
+}

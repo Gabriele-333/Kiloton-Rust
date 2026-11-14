@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "IGI",
+    "PRP",
+    "IBI"
+  ],
+  "key": {
+    "I": "minecraft:iron_ingot",
+    "G": "minecraft:glass",
+    "P": "minecraft:copper_ingot",
+    "R": "minecraft:redstone_block",
+    "B": "minecraft:iron_block"
+  },
+  "result": {
+    "id": "kiloton:gas_centrifuge",
+    "count": 1
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "DND",
+    "DMD",
+    " G "
+  ],
+  "key": {
+    "D": "kiloton:depleted_uranium",
+    "N": "minecraft:netherite_ingot",
+    "M": "kiloton:hazmat_mask",
+    "G": "minecraft:tinted_glass"
+  },
+  "result": {
+    "id": "kiloton:exosuit_helmet",
+    "count": 1
+  }
+}

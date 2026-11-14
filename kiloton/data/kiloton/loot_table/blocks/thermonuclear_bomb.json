@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:block",
+  "random_sequence": "kiloton:blocks/thermonuclear_bomb",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "kiloton:thermonuclear_bomb",
+          "condition": {
+            "type": "minecraft:match_block",
+            "blocks": "kiloton:thermonuclear_bomb",
+            "state": {
+              "part": "head"
+            }
+          }
+        }
+      ],
+      "condition": {
+        "type": "minecraft:survives_explosion"
+      }
+    }
+  ]
+}

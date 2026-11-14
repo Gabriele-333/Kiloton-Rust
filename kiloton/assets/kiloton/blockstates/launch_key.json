@@ -1,0 +1,34 @@
+{
+ "variants": {
+  "facing=north,turned=false": {
+   "model": "kiloton:block/launch_key"
+  },
+  "facing=north,turned=true": {
+   "model": "kiloton:block/launch_key_turned"
+  },
+  "facing=east,turned=false": {
+   "model": "kiloton:block/launch_key",
+   "y": 90
+  },
+  "facing=east,turned=true": {
+   "model": "kiloton:block/launch_key_turned",
+   "y": 90
+  },
+  "facing=south,turned=false": {
+   "model": "kiloton:block/launch_key",
+   "y": 180
+  },
+  "facing=south,turned=true": {
+   "model": "kiloton:block/launch_key_turned",
+   "y": 180
+  },
+  "facing=west,turned=false": {
+   "model": "kiloton:block/launch_key",
+   "y": 270
+  },
+  "facing=west,turned=true": {
+   "model": "kiloton:block/launch_key_turned",
+   "y": 270
+  }
+ }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_bottom_left",
+  "textures": {
+    "bottom": "kiloton:block/bunker_door_bottom",
+    "top": "kiloton:block/bunker_door_top"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "kiloton:block/air_filter_front_on",
+    "side": "kiloton:block/air_filter_side",
+    "top": "kiloton:block/air_filter_side"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    "CCC",
+    "CDC",
+    "CCC"
+  ],
+  "key": {
+    "C": "kiloton:gold_cable",
+    "D": "minecraft:diamond"
+  },
+  "result": {
+    "id": "kiloton:hardened_cable",
+    "count": 8
+  }
+}

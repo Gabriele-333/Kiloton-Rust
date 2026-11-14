@@ -1,0 +1,13 @@
+{
+  "template": "minecraft:oak_leaves",
+  "properties": {
+    "hardness": 0.2,
+    "explosion_resistance": 0.2,
+    "sounds": "minecraft:grass_block",
+    "map_color": 37
+  },
+  "default_state": {
+    "persistent": "true"
+  },
+  "item": true
+}

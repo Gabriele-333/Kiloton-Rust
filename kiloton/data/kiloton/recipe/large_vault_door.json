@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    "OVO",
+    "VNV",
+    "OVO"
+  ],
+  "key": {
+    "O": "minecraft:obsidian",
+    "V": "kiloton:vault_door",
+    "N": "minecraft:netherite_ingot"
+  },
+  "result": {
+    "id": "kiloton:large_vault_door",
+    "count": 1
+  }
+}

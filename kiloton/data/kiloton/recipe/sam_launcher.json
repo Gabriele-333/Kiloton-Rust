@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    "B B",
+    "ICI",
+    "IGI"
+  ],
+  "key": {
+    "B": "minecraft:iron_bars",
+    "I": "minecraft:iron_block",
+    "C": "minecraft:redstone_block",
+    "G": "kiloton:guidance_unit"
+  },
+  "result": {
+    "id": "kiloton:sam_launcher",
+    "count": 1
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "YYY",
+    "YGY",
+    " C "
+  ],
+  "key": {
+    "Y": "minecraft:yellow_wool",
+    "G": "minecraft:glass_pane",
+    "C": "minecraft:charcoal"
+  },
+  "result": {
+    "id": "kiloton:hazmat_mask",
+    "count": 1
+  }
+}

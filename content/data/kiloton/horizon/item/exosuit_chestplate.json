@@ -1,0 +1,45 @@
+{
+  "template": "minecraft:iron_chestplate",
+  "rarity": "rare",
+  "components": {
+    "minecraft:attribute_modifiers": [
+      {
+        "type": "minecraft:armor",
+        "amount": 8.0,
+        "id": "minecraft:armor.chestplate",
+        "operation": "add_value",
+        "slot": "chest"
+      },
+      {
+        "type": "minecraft:armor_toughness",
+        "amount": 3.0,
+        "id": "minecraft:armor.chestplate",
+        "operation": "add_value",
+        "slot": "chest"
+      },
+      {
+        "type": "minecraft:knockback_resistance",
+        "amount": 0.1,
+        "id": "minecraft:armor.chestplate",
+        "operation": "add_value",
+        "slot": "chest"
+      }
+    ],
+    "minecraft:equippable": {
+      "asset_id": "kiloton:exosuit",
+      "equip_sound": "minecraft:item.armor.equip_netherite",
+      "slot": "chest"
+    },
+    "minecraft:enchantable": {
+      "value": 12
+    },
+    "minecraft:repairable": {
+      "items": "#minecraft:repairs_netherite_armor"
+    },
+    "!minecraft:max_damage": {},
+    "!minecraft:damage": {},
+    "minecraft:damage_resistant": {
+      "types": "#minecraft:is_fire"
+    }
+  }
+}

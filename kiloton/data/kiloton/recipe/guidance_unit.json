@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "RQR",
+    "CEC",
+    "RGR"
+  ],
+  "key": {
+    "R": "minecraft:redstone",
+    "Q": "minecraft:quartz",
+    "C": "minecraft:comparator",
+    "E": "minecraft:ender_eye",
+    "G": "minecraft:gold_ingot"
+  },
+  "result": {
+    "id": "kiloton:guidance_unit",
+    "count": 1
+  }
+}

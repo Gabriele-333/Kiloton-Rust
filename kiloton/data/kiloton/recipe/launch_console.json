@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    "LBL",
+    "ICI",
+    "IRI"
+  ],
+  "key": {
+    "L": "minecraft:redstone_lamp",
+    "B": "minecraft:stone_button",
+    "C": "minecraft:comparator",
+    "I": "minecraft:iron_ingot",
+    "R": "minecraft:redstone_block"
+  },
+  "result": {
+    "id": "kiloton:launch_console",
+    "count": 1
+  }
+}

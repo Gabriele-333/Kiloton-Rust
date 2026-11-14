@@ -1,0 +1,18 @@
+{
+  "template": "minecraft:white_carpet",
+  "properties": {
+    "hardness": 0.1,
+    "explosion_resistance": 0.1,
+    "sounds": "minecraft:sand",
+    "map_color": 22
+  },
+  "state_properties": {
+    "soot": {
+      "type": "boolean"
+    }
+  },
+  "default_state": {
+    "soot": "false"
+  },
+  "item": true
+}

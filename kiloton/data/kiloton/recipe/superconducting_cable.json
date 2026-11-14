@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    "CCC",
+    "CNC",
+    "CCC"
+  ],
+  "key": {
+    "C": "kiloton:hardened_cable",
+    "N": "minecraft:netherite_ingot"
+  },
+  "result": {
+    "id": "kiloton:superconducting_cable",
+    "count": 8
+  }
+}

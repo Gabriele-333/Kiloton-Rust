@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "IDI",
+    "DPD",
+    "IDI"
+  ],
+  "key": {
+    "I": "minecraft:iron_ingot",
+    "D": "kiloton:depleted_uranium",
+    "P": "kiloton:plutonium"
+  },
+  "result": {
+    "id": "kiloton:nuclear_cell",
+    "count": 1
+  }
+}

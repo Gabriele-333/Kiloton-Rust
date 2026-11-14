@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    " C ",
+    "IBI"
+  ],
+  "key": {
+    "C": "minecraft:copper_ingot",
+    "I": "minecraft:iron_ingot",
+    "B": "minecraft:iron_bars"
+  },
+  "result": {
+    "id": "kiloton:decon_shower",
+    "count": 1
+  }
+}

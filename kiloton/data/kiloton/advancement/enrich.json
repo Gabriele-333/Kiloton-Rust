@@ -1,0 +1,36 @@
+{
+  "display": {
+    "icon": {
+      "id": "kiloton:low_enriched_uranium"
+    },
+    "title": {
+      "translate": "advancements.kiloton.enrich.title"
+    },
+    "description": {
+      "translate": "advancements.kiloton.enrich.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "low_enriched_uranium": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "kiloton:low_enriched_uranium"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "low_enriched_uranium"
+    ]
+  ],
+  "sends_telemetry_event": false,
+  "parent": "kiloton:yellowcake"
+}

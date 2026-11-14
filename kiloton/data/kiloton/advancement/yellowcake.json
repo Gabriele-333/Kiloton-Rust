@@ -1,0 +1,36 @@
+{
+  "display": {
+    "icon": {
+      "id": "kiloton:yellowcake"
+    },
+    "title": {
+      "translate": "advancements.kiloton.yellowcake.title"
+    },
+    "description": {
+      "translate": "advancements.kiloton.yellowcake.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "yellowcake": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "kiloton:yellowcake"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "yellowcake"
+    ]
+  ],
+  "sends_telemetry_event": false,
+  "parent": "kiloton:root"
+}

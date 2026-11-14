@@ -1,0 +1,8 @@
+id = "kiloton"
+name = "Kiloton"
+version = "1.3.0"
+description = "A realistic nuclear explosion: blast wave, fireball, mushroom cloud, crater, fallout, and the industry to build the bomb."
+authors = ["Gabriele_333", "SaturnX Studios"]
+api = "0.2"
+side = "both"
+capabilities = ["registries"]

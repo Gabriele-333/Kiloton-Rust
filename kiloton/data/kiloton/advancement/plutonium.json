@@ -1,0 +1,36 @@
+{
+  "display": {
+    "icon": {
+      "id": "kiloton:plutonium"
+    },
+    "title": {
+      "translate": "advancements.kiloton.plutonium.title"
+    },
+    "description": {
+      "translate": "advancements.kiloton.plutonium.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "plutonium": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "kiloton:plutonium"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "plutonium"
+    ]
+  ],
+  "sends_telemetry_event": false,
+  "parent": "kiloton:enrich"
+}

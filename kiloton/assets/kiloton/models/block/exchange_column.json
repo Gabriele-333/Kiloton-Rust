@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/orientable_with_bottom",
+  "textures": {
+    "front": "kiloton:block/exchange_column_front",
+    "side": "kiloton:block/exchange_column_side",
+    "top": "kiloton:block/exchange_column_top",
+    "bottom": "kiloton:block/machine_bottom"
+  }
+}

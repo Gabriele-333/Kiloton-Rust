@@ -5,7 +5,7 @@
 //! was set: normal, extract, disconnected (shift-right-click with an empty hand cycles the clicked side).
 //!
 //! A block entity is out of the world while it ticks, so the pieces only say where they are and how they are set
-//! from their tick; the network runs in the `level-energy` injection, after every block entity ticked. As in Java a
+//! from their tick; the network runs in `Level::energy`, after every block entity ticked. As in Java a
 //! network is kept from tick to tick and built again only when a piece comes, goes or changes, or a side starts
 //! touching something else. It keeps what each piece holds and tells Horizon only what changes: the pieces next to a
 //! block are read every tick (that block may have filled them), and a piece's buffer gives energy too, so the network
@@ -297,7 +297,7 @@ const EXTRACT_OP: u8 = 2;
 const READ: u8 = 3;
 const CAPACITY: u8 = 4;
 
-/// The networks of this level, once a tick after the block entities (`level-energy`; Java: `CableNetwork.tick`/`run`).
+/// The networks of this level, once a tick after the block entities (`Level::energy`; Java: `CableNetwork.tick`/`run`).
 pub fn level_energy(dimension: &str, energy: &mut dyn FnMut(u8, [i32; 3], u8, [i32; 3], u8, i32) -> i32) {
     // Out of the shared state while Horizon is called, back in after.
     let Some(mut d) = with(|s| s.dims.get_mut(dimension).map(std::mem::take)) else { return };

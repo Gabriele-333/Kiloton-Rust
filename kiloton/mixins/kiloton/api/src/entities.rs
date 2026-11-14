@@ -6,7 +6,7 @@
 //!
 //! Each tick has two halves, like the sweep: the `level_tick_post` hook (with the Host) takes a
 //! snapshot of the creatures and carries out what was decided, and the next tick's head (the
-//! `level-read` injection, with the level's blocks) decides it: lines of sight, shelters, the way in
+//! `Level::read`, with the level's blocks) decides it: lines of sight, shelters, the way in
 //! for the wave.
 
 use crate::profiles::Tables;

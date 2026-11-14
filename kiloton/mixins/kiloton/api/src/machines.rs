@@ -7,7 +7,7 @@
 //! The buffer is Horizon's (`block_entity_energy`, the int `energy` of the saved compound, as Java's
 //! `SimpleEnergyHandler`). A block entity is out of the world while it ticks, so what moves energy between blocks
 //! (the reactor's push, the creative source) is queued by the tick and done right after the level's block entities, in
-//! the `level-energy` injection.
+//! `Level::energy` (the game's `kiloton` glue).
 
 use crate::bomb::get_int;
 use horizon_client::mod_api::{Compound, Host, ItemStack, ModBlockEntity, ModContainer, ModEnergyBuffer, Tag};
@@ -76,7 +76,7 @@ fn config() -> ServerConfig {
 
 // ------------------------------------------------------------------------------------------------ queued moves
 
-/// What moves energy between blocks this tick, done after the block entities (`level-energy`).
+/// What moves energy between blocks this tick, done after the block entities (`Level::energy`).
 #[derive(Default)]
 struct State {
     /// Reactors with energy to push: dimension, position, the most to push.
@@ -97,7 +97,7 @@ pub fn forget_all() {
     with(|s| *s = State::default());
 }
 
-/// Energy operations of the `level-energy` injection (its `energy` binding's first argument).
+/// Energy operations of `Level::energy` (its `energy` closure's first argument).
 pub const OP_MOVE: u8 = 0;
 pub const OP_INSERT: u8 = 1;
 

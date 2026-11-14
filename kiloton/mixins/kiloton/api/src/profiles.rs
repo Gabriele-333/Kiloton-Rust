@@ -1,5 +1,5 @@
 //! What the sweep knows of every block state (Java: `BlockProfiles` and the state checks of
-//! `BlastShape`), built once: the game's block facts come through the `level-read` injection
+//! `BlastShape`), built once: the game's block facts come through `Level::read`
 //! (hardness, blast resistance, collision, fire odds, axis, fluids, light), the tags through the
 //! Host, and [`kiloton_core::blast::profile::compute`] makes the profile.
 

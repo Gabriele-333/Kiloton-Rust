@@ -13,7 +13,7 @@ from pathlib import Path
 
 SRC = Path(__file__).resolve().parents[1]
 DST = Path(sys.argv[1]) if len(sys.argv) > 1 else SRC.parent.parent / "Kiloton-Rust"
-TOP = ["kiloton", "content", "parity", "tools"]
+TOP = ["kiloton", "content", "parity", "tools", "dev"]
 SKIP_DIRS = {"run", "build", "out", "__pycache__", "target", ".horizon-cache"}
 
 

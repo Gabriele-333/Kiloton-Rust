@@ -5,9 +5,12 @@ use std::path::{Path, PathBuf};
 
 fn shader_dir() -> PathBuf {
     let here = Path::new(env!("CARGO_MANIFEST_DIR"));
-    // The source tree (mixins/kiloton/{kiloton-core,api}) or the copy hz.py stages into Horizon
-    // (native-crates/kiloton/kiloton-core, native-api/kiloton).
-    for c in [here.join("../api/data"), here.join("../../../native-api/kiloton/data")] {
+    // The source tree (horizon-26.3/dev/shader-check) or the copy hz.py stages into Horizon
+    // (native-crates/kiloton-dev/shader-check, beside native-api/kiloton).
+    for c in [
+        here.join("../../kiloton/mixins/kiloton/api/data"),
+        here.join("../../../native-api/kiloton/data"),
+    ] {
         if c.join("kiloton_cloud.wgsl").exists() {
             return c;
         }

@@ -457,7 +457,7 @@ struct State {
     armed_halves: HashSet<(String, [i32; 3])>,
     /// Advancements to grant from the server's tick (player, advancement).
     awards: Vec<(u128, &'static str)>,
-    /// Conventional blasts for the `level-explode` injection (dimension, centre, power).
+    /// Conventional blasts for `Level::explode` (dimension, centre, power).
     explosions: Vec<(String, [f64; 3], f32)>,
     /// The armed devices of the save, to hold their chunks again when their level opens.
     to_hold: HashMap<String, Vec<[i32; 3]>>,
@@ -1125,7 +1125,7 @@ pub fn level_tick(host: &mut dyn Host, dimension: &str) {
     }
 }
 
-/// The lenses-only blasts queued for this level (the `level-explode` injection).
+/// The lenses-only blasts queued for this level (`Level::explode`).
 pub fn explosions(dimension: &str) -> Vec<([f64; 3], f32)> {
     with(|s| {
         if s.explosions.is_empty() {

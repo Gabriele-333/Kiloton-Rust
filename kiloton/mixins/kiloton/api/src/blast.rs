@@ -2,12 +2,12 @@
 //! level, the chunks it finds unloaded (remembered one bit each, damaged when they load), and what
 //! is owed when the world closes before a sweep ends.
 //!
-//! Each level tick has two halves. At its head (the `level-read` injection) the sweep reads the
+//! Each level tick has two halves. At its head (`Level::read`, from the game's `kiloton` glue) the sweep reads the
 //! level's blocks directly and works the columns out with `kiloton_core::blast::shape`, writing into
 //! an overlay; right after (the `level_tick_post` hook, with the Host) the overlay goes into the
 //! world: one bulk edit (`edit_blocks`, which tells no neighbour, as Java writes the sections), and
 //! `set_block` for fires (so they tick) and for states that can't be named in a bulk edit. The next
-//! tick reads the columns at the crater's edge back and the `level-ticks` injection gives their
+//! tick reads the columns at the crater's edge back and `Level::ticks` gives their
 //! fluids a tick, so the water there pours in (Java: `edgeFluids`).
 
 use crate::profiles::Tables;
@@ -130,7 +130,7 @@ pub struct Blasts {
     /// Columns just outside a crater whose fluids get a tick once this tick's writes are in
     /// (Java: `edgeFluids`): dimension, x, z, from y down to y.
     edge_scan: Vec<(String, i32, i32, i32, i32)>,
-    /// The fluid ticks the `level-ticks` injection schedules: dimension, position, kind (1 water,
+    /// The fluid ticks `Level::ticks` schedules: dimension, position, kind (1 water,
     /// 2 flowing water, 3 lava, 4 flowing lava) and delay.
     pub fluid_ticks: Vec<(String, [i32; 3], u8, i32)>,
     /// Bursts started this tick, for the players of their level (Java: `BlastPayload`).
@@ -471,7 +471,7 @@ impl Blasts {
     /// Java's `edgeFluids` and `scheduleFluid`: each fluid block of the columns at the crater's edge,
     /// from the top down to the bottom of the crater, gets a tick, so the water walls left standing
     /// there pour into the hole. Read here, a tick after the writes, and scheduled by the
-    /// `level-ticks` injection right after.
+    /// `Level::ticks` right after.
     fn scan_edges(&mut self, dimension: &str, world: &GameWorld, tables: &Tables) {
         if self.edge_scan.is_empty() {
             return;

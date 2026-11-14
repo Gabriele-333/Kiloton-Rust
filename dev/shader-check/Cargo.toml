@@ -1,0 +1,12 @@
+[package]
+name = "kiloton-shader-check"
+version = "0.1.0"
+edition = "2024"
+publish = false
+description = "Development only: validates Kiloton's WGSL with the game's own naga. Not part of the mod."
+
+# Not in the bundle: horizon-mixins accepts only crates.io packages from Horizon's Cargo.lock as a
+# bundle crate's dependencies, and Horizon's naga is its patched copy (third_party/naga).
+# tools/hz.py stages this crate into the Horizon workspace for `hz.py test`, where the patch applies.
+[dev-dependencies]
+naga = { version = "30.0.1", features = ["wgsl-in"] }

@@ -17,12 +17,12 @@ mod machines;
 mod profiles;
 mod save;
 
-use horizon_client::blocks::Fluid;
+use horizon_client::blocks::{BlockFacts, Fluid};
+use horizon_client::world::World;
 use horizon_client::mod_api::{
     BlockEntityContainerEvent, BlockEntityEnergyEvent, BlockEntityEvent, BlockEntityTickEvent, BlockEntityTicksEvent, BlockStateId, BreakSpeedEvent,
     CameraPoseEvent, CameraShakeEvent, ChunkLoadEvent, ClientTickPostEvent, Compound, ComputeFogColorEvent, ContainerAcceptsEvent,
-    DestroyBlockEvent, Flow, Hooks, Host, HudEvent, InjectKilotonLevelEnergyEvent, InjectKilotonLevelExplodeEvent, InjectKilotonLevelReadEvent,
-    InjectKilotonLevelTicksEvent, LevelHost, LevelLoadEvent, LevelTickPostEvent, LevelUnloadEvent, LivingIncomingDamageEvent,
+    DestroyBlockEvent, Flow, Hooks, Host, HudEvent, LevelHost, LevelLoadEvent, LevelTickPostEvent, LevelUnloadEvent, LivingIncomingDamageEvent,
     MenuButtonEvent, MenuSlotRulesEvent, ModContainer, ModContainerViewersEvent, ModEnergyBuffer, NativeScreen, NetFromServerEvent,
     PerformCommandEvent, PlaceBlockEvent, RegisterCommandsEvent, RenderFogEvent, RenderHooks, RightClickBlockV2Event,
     ScreenClickEvent, ScreenDrawEvent, ScreenEvent, ScreenTooltipEvent, ServerStoppingEvent, StateForPlacementEvent,
@@ -33,6 +33,7 @@ use std::collections::HashSet;
 use std::sync::Mutex;
 
 pub fn hooks() -> Box<dyn Hooks> {
+    horizon_client::game::kiloton::install(Box::new(Kiloton));
     Box::new(Kiloton)
 }
 
@@ -52,6 +53,112 @@ fn open(dimension: &str, is_open: bool) {
         }
     } else {
         set.remove(dimension);
+    }
+}
+
+/// The head of each level's tick end, from the game's `kiloton` glue module (horizon-mixin.toml): energy,
+/// lenses-only blasts, the block facts and the level for the sweep, then the fluid ticks, in that order.
+impl horizon_client::game::kiloton::Level for Kiloton {
+    /// First at the level's tick end: the reactors and the creative sources push their power into
+    /// what they touch, after the block entities ticked (machines.rs), then the cables move theirs.
+    fn energy(&self, dimension: &str, energy: &mut dyn FnMut(u8, [i32; 3], u8, [i32; 3], u8, i32) -> i32) {
+        machines::level_energy(dimension, energy);
+        cables::level_energy(dimension, energy);
+    }
+
+    /// Right after `energy`: devices that went off with their lenses only.
+    fn explode(&self, dimension: &str, explode: &mut dyn FnMut([f64; 3], f32) -> bool) {
+        for (centre, power) in bomb::explosions(dimension) {
+            if !explode(centre, power) {
+                log::warn!("Kiloton: the lenses-only blast at {centre:?} in {dimension} did not go off");
+            }
+        }
+    }
+
+    /// The game's block facts and the level's blocks, for the sweep.
+    fn read(
+        &self,
+        dimension: &str,
+        facts: &BlockFacts,
+        world: &World,
+        collides: &dyn Fn(u32) -> bool,
+        ignite_odds: &dyn Fn(u32) -> i32,
+        axis: &dyn Fn(u32) -> u8,
+        open_state: &dyn Fn(u32) -> u8,
+    ) {
+        open(dimension, true);
+        let fresh = RAW.read().map(|r| r.as_ref().is_none_or(|r| r.len() != facts.states.len())).unwrap_or(true);
+        if fresh {
+            let raw: Vec<Raw> = facts
+                .states
+                .iter()
+                .enumerate()
+                .map(|(i, f)| {
+                    let id = i as u32;
+                    Raw {
+                        name: f.name.to_string(),
+                        hardness: f.hardness,
+                        resistance: f.explosion_resistance,
+                        collides: collides(id),
+                        ignite_odds: ignite_odds(id),
+                        axis: axis(id),
+                        full_collision: f.full_collision,
+                        block_entity: f.block_entity,
+                        waterlogged: f.waterlogged,
+                        fluid: match f.fluid {
+                            Fluid::None => 0,
+                            Fluid::Water => 1,
+                            Fluid::Lava => 2,
+                        },
+                        fluid_source: f.fluid_level == 8 && !f.fluid_falling,
+                        emission: f.emission,
+                        legacy_solid: f.legacy_solid,
+                        leaves_class: f.classes.iter().any(|c| &**c == "LeavesBlock"),
+                        liquid_class: f.classes.iter().any(|c| &**c == "LiquidBlock"),
+                        can_occlude: f.can_occlude,
+                        metal: f.sounds.break_sound.contains("metal"),
+                        door: f.classes.iter().any(|c| &**c == "DoorBlock" || &**c == "TrapDoorBlock"),
+                        open: open_state(id),
+                        replaceable: f.replaceable,
+                        tall: f.classes.iter().any(|c| &**c == "DoublePlantBlock" || &**c == "DoorBlock" || &**c == "TallFlowerBlock" || &**c == "TallSeagrassBlock"),
+                        boxes: if f.outline.len() == 1 && f.outline[0] == [0.0, 0.0, 0.0, 1.0, 1.0, 1.0] {
+                            Vec::new()
+                        } else {
+                            f.outline.to_vec()
+                        },
+                    }
+                })
+                .collect();
+            log::info!("Kiloton: block facts of {} states read", raw.len());
+            *RAW.write().unwrap_or_else(|e| e.into_inner()) = Some(raw);
+            *TABLES.write().unwrap_or_else(|e| e.into_inner()) = None;
+        }
+        let tables = TABLES.read().unwrap_or_else(|e| e.into_inner());
+        let Some(tables) = tables.as_ref() else { return };
+        let queue = TO_QUEUE.lock().ok().and_then(|mut q| q.as_mut().map(|q| q.remove(dimension))).unwrap_or(false);
+        blast::with(|b| {
+            if queue {
+                b.queue_loaded(dimension, world);
+            }
+            b.read(dimension, world, tables);
+            b.creatures_read(dimension, world, tables);
+        });
+    }
+
+    /// Right after `read`: the fluids at the crater's edge get their tick (Java: `edgeFluids`).
+    fn ticks(&self, dimension: &str, schedule_fluids: &mut dyn FnMut(&[([i32; 3], u8, i32)])) {
+        let wanted: Vec<([i32; 3], u8, i32)> = blast::with(|b| {
+            if b.fluid_ticks.is_empty() {
+                return Vec::new();
+            }
+            let (here, rest): (Vec<_>, Vec<_>) = std::mem::take(&mut b.fluid_ticks).into_iter().partition(|t| t.0 == dimension);
+            b.fluid_ticks = rest;
+            here.into_iter().map(|(_, p, k, d)| (p, k, d)).collect()
+        });
+        if !wanted.is_empty() {
+            log::info!("Kiloton: {} fluid tick(s) at the crater's edge in {dimension}", wanted.len());
+            schedule_fluids(&wanted);
+        }
     }
 }
 
@@ -124,86 +231,6 @@ impl Hooks for Kiloton {
         if command::perform(host, event.player, event.command) { Flow::Cancel } else { Flow::Continue }
     }
 
-    /// The head of each level's tick (the `level-read` injection): the game's block facts and the
-    /// level's blocks, for the sweep.
-    fn inject_kiloton_level_read(&self, event: &mut InjectKilotonLevelReadEvent<'_>) {
-        open(event.dimension, true);
-        let facts = event.facts;
-        let fresh = RAW.read().map(|r| r.as_ref().is_none_or(|r| r.len() != facts.states.len())).unwrap_or(true);
-        if fresh {
-            let raw: Vec<Raw> = facts
-                .states
-                .iter()
-                .enumerate()
-                .map(|(i, f)| {
-                    let id = i as u32;
-                    Raw {
-                        name: f.name.to_string(),
-                        hardness: f.hardness,
-                        resistance: f.explosion_resistance,
-                        collides: (event.collides)(id),
-                        ignite_odds: (event.ignite_odds)(id),
-                        axis: (event.axis)(id),
-                        full_collision: f.full_collision,
-                        block_entity: f.block_entity,
-                        waterlogged: f.waterlogged,
-                        fluid: match f.fluid {
-                            Fluid::None => 0,
-                            Fluid::Water => 1,
-                            Fluid::Lava => 2,
-                        },
-                        fluid_source: f.fluid_level == 8 && !f.fluid_falling,
-                        emission: f.emission,
-                        legacy_solid: f.legacy_solid,
-                        leaves_class: f.classes.iter().any(|c| &**c == "LeavesBlock"),
-                        liquid_class: f.classes.iter().any(|c| &**c == "LiquidBlock"),
-                        can_occlude: f.can_occlude,
-                        metal: f.sounds.break_sound.contains("metal"),
-                        door: f.classes.iter().any(|c| &**c == "DoorBlock" || &**c == "TrapDoorBlock"),
-                        open: (event.open)(id),
-                        replaceable: f.replaceable,
-                        tall: f.classes.iter().any(|c| &**c == "DoublePlantBlock" || &**c == "DoorBlock" || &**c == "TallFlowerBlock" || &**c == "TallSeagrassBlock"),
-                        boxes: if f.outline.len() == 1 && f.outline[0] == [0.0, 0.0, 0.0, 1.0, 1.0, 1.0] {
-                            Vec::new()
-                        } else {
-                            f.outline.to_vec()
-                        },
-                    }
-                })
-                .collect();
-            log::info!("Kiloton: block facts of {} states read", raw.len());
-            *RAW.write().unwrap_or_else(|e| e.into_inner()) = Some(raw);
-            *TABLES.write().unwrap_or_else(|e| e.into_inner()) = None;
-        }
-        let tables = TABLES.read().unwrap_or_else(|e| e.into_inner());
-        let Some(tables) = tables.as_ref() else { return };
-        let queue = TO_QUEUE.lock().ok().and_then(|mut q| q.as_mut().map(|q| q.remove(event.dimension))).unwrap_or(false);
-        blast::with(|b| {
-            if queue {
-                b.queue_loaded(event.dimension, event.world);
-            }
-            b.read(event.dimension, event.world, tables);
-            b.creatures_read(event.dimension, event.world, tables);
-        });
-    }
-
-    /// Right after `level-read` (the `level-ticks` injection): the fluids at the crater's edge get
-    /// their tick (Java: `edgeFluids`).
-    fn inject_kiloton_level_ticks(&self, event: &mut InjectKilotonLevelTicksEvent<'_>) {
-        let dimension = event.dimension;
-        let wanted: Vec<([i32; 3], u8, i32)> = blast::with(|b| {
-            if b.fluid_ticks.is_empty() {
-                return Vec::new();
-            }
-            let (here, rest): (Vec<_>, Vec<_>) = std::mem::take(&mut b.fluid_ticks).into_iter().partition(|t| t.0 == dimension);
-            b.fluid_ticks = rest;
-            here.into_iter().map(|(_, p, k, d)| (p, k, d)).collect()
-        });
-        if !wanted.is_empty() {
-            (event.schedule_fluids)(&wanted);
-        }
-    }
-
     /// Each level's tick, right after the head: what the sweep wrote goes into the world.
     fn level_tick_post(&self, host: &mut dyn Host, event: &mut LevelTickPostEvent<'_>) {
         let need = TABLES.read().map(|t| t.is_none()).unwrap_or(false);
@@ -219,22 +246,6 @@ impl Hooks for Kiloton {
         let names = |s: u32| RAW.read().ok().and_then(|r| r.as_ref().and_then(|r| r.get(s as usize).map(|x| x.name.clone())));
         blast::with(|b| b.apply(host, event.dimension, &names));
         bomb::level_tick(host, event.dimension);
-    }
-
-    /// First at the level's tick end (the `level-energy` injection): the reactors and the creative sources push their
-    /// power into what they touch, after the block entities ticked (machines.rs).
-    fn inject_kiloton_level_energy(&self, event: &mut InjectKilotonLevelEnergyEvent<'_>) {
-        machines::level_energy(event.dimension, event.energy);
-        cables::level_energy(event.dimension, event.energy);
-    }
-
-    /// Right after `level-ticks` (the `level-explode` injection): devices that went off with their lenses only.
-    fn inject_kiloton_level_explode(&self, event: &mut InjectKilotonLevelExplodeEvent<'_>) {
-        for (centre, power) in bomb::explosions(event.dimension) {
-            if !(event.explode)(centre, power) {
-                log::warn!("Kiloton: the lenses-only blast at {centre:?} in {} did not go off", event.dimension);
-            }
-        }
     }
 
     // ---------------------------------------------------------------------------------------- the device (bomb.rs)

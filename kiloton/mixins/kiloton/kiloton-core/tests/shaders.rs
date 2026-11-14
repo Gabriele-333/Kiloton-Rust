@@ -1,4 +1,4 @@
-//! The WGSL the client draws with (api/src/*.wgsl) parses and validates with naga, the compiler
+//! The WGSL the client draws with (api/data/*.wgsl) parses and validates with naga, the compiler
 //! wgpu uses, so a mistake shows here and not as a failed pipeline in the game.
 
 use std::path::{Path, PathBuf};
@@ -7,12 +7,12 @@ fn shader_dir() -> PathBuf {
     let here = Path::new(env!("CARGO_MANIFEST_DIR"));
     // The source tree (mixins/kiloton/{kiloton-core,api}) or the copy hz.py stages into Horizon
     // (native-crates/kiloton/kiloton-core, native-api/kiloton).
-    for c in [here.join("../api/src"), here.join("../../../native-api/kiloton/src")] {
+    for c in [here.join("../api/data"), here.join("../../../native-api/kiloton/data")] {
         if c.join("kiloton_cloud.wgsl").exists() {
             return c;
         }
     }
-    panic!("api/src/kiloton_cloud.wgsl not found from {}", here.display());
+    panic!("api/data/kiloton_cloud.wgsl not found from {}", here.display());
 }
 
 fn validate(name: &str, source: &str) {

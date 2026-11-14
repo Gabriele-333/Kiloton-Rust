@@ -323,8 +323,10 @@ def workspace_members(add: bool) -> bool:
     text = root.read_text(encoding="utf-8")
     wanted = MEMBERS + [f"{CRATES_DIR}/{cid}" for cid, _ in crates()]
     marker = "    # Kiloton (tools/hz.py)\n"
-    block = marker + "".join(f'    "{m}",\n' for m in wanted)
-    new = re.sub(re.escape(marker) + r'(?:    "[^"\n]*",\n)*', "", text)
+    end = "    # end of Kiloton (tools/hz.py)\n"
+    block = marker + "".join(f'    "{m}",\n' for m in wanted) + end
+    # Only between the two markers: Horizon's own members right after the block are its own.
+    new = re.sub(re.escape(marker) + r".*?" + re.escape(end), "", text, flags=re.S)
     if add:
         new = new.replace("members = [\n", "members = [\n" + block, 1)
     if new != text:
